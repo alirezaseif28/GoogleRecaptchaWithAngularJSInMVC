@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section header{
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="~/ScriptApp/angular-recaptcha.js"></script>
+}
+
+
+<div ng-app="myApp" ng-controller="RecatchaGoogleController">
+
+
+    <div vc-recaptcha
+         theme="'light'"
+         key="model.key"
+         on-create="setWidgetId(widgetId)"
+         on-success="setResponse(response)"
+         on-expire="cbExpiration()"></div>
+    <button class="btn" type="button" ng-click="submit()">Submit</button>
+
+
+</div>
+
+@section footer{
+    <script src="~/ScriptApp/RecatchaGoogleController.js"></script>
+}
